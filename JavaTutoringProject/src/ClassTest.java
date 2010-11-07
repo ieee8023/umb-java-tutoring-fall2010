@@ -1,7 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
-
 public class ClassTest {
 
 	public static void main(String[] args) {
