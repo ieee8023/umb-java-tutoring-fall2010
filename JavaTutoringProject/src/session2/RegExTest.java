@@ -17,8 +17,6 @@ public class RegExTest {
 		toSearch.add("ding@cs.umb.edu");
 		toSearch.add("Email: <a href='mailto:ding@cs.umb.edu'> ding@cs.umb.edu </a>");
 		
-		
-		
 		Pattern pattern = Pattern.compile(regEx);
 		
 		for(String s : toSearch){
@@ -27,9 +25,9 @@ public class RegExTest {
 			
 			while (matcher.find()){
 				
-				System.out.println("Found match in String <" + s + ">" +
-						" Start: " + matcher.start() + 
-						" End: " + matcher.end() +
+				System.out.println("Found match in String <" + s + ">\n" +
+						" Start: " + matcher.start() + "\n" + 
+						" End: " + matcher.end() + "\n" + 
 						" Content: " + matcher.group());
 				
 			}
