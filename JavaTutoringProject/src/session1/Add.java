@@ -4,7 +4,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
-
+/**
+ * 
+ * @author Joseph Paul Cohen 2010
+ *
+ */
 public class Add {
 
 	public static void main(String[] args){

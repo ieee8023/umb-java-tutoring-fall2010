@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * 
+ * @author Joseph Paul Cohen 2010
+ *
+ */
 public class RegExTest {
 
 	public static void main(String[] args) {
