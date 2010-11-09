@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * 
+ * @author Joseph Paul Cohen 2010
+ *
+ */
 public class HttpTest {
 
 	public static void main(String[] args) throws IOException {

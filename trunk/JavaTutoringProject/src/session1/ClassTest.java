@@ -1,4 +1,10 @@
 package session1;
+
+/**
+ * 
+ * @author Joseph Paul Cohen 2010
+ *
+ */
 public class ClassTest {
 
 	public static void main(String[] args) {
