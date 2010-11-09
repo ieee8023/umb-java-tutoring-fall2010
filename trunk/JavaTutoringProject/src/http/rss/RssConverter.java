@@ -13,9 +13,10 @@ import com.thoughtworks.xstream.mapper.MapperWrapper;
  *
  */
 public class RssConverter {
+	
     private XStream xs;
     public RssConverter(XStream xs) {
-        this.xs = xs;
+    	this.xs = xs;
         xs.alias("rss", Rss.class);
         xs.alias("atom:link", String.class);
         xs.alias("title", String.class);
@@ -27,24 +28,25 @@ public class RssConverter {
     public RssConverter() {
         this(new XStream(new DomDriver()){
         	@Override
-      	  protected MapperWrapper wrapMapper(MapperWrapper next) {
-      	    return new MapperWrapper(next){
-      	      @Override
-      	      public boolean shouldSerializeMember(Class definedIn, String fieldName) {
+        	protected MapperWrapper wrapMapper(MapperWrapper next) {
+        		return new MapperWrapper(next){
+        			@SuppressWarnings("rawtypes")
+        			@Override
+        			public boolean shouldSerializeMember(Class definedIn, String fieldName) {
       	    	  
-      	        if (definedIn == Object.class)
-      	          return false;
+        				if (definedIn == Object.class)
+        					return false;
       	        
-      	        return super.shouldSerializeMember(definedIn, fieldName);
+        				return super.shouldSerializeMember(definedIn, fieldName);
       	        
-      	      }
-      	    };
-      	  }
-      });
+        			}
+        		};
+        	}
+        });
     }
     
     public Rss fromXml(String rss) {
-        return (Rss) xs.fromXML(rss);
+    	return (Rss) xs.fromXML(rss);
     }
     
     public Rss fromXml(FileInputStream fileInputStream) {
