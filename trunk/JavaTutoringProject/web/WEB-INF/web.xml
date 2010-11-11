@@ -7,7 +7,7 @@
     <servlet>
         <servlet-name>Service</servlet-name>
         <display-name>Service</display-name>
-        <servlet-class>edu.umb.kdl.craterdetectweb.view.KDLServlet</servlet-class>
+        <servlet-class>servlet.ExampleServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
