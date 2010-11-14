@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="JosephPaulCohen" default="run" basedir=".">
+   	
+	<property name="lib" value="lib/"/>
+	<property name="src" value="src/stdin"/>
+	<property name="bin" value="classes/stdin"/>
+	
+	<path id="classpath">
+		<pathelement location="${bin}"/>
+	</path>
+	
+	<target name="clean">
+		<delete dir="${bin}"/>
+	</target>
+	
+	<target name="build">
+		<mkdir dir="${bin}"/>
+		<javac srcdir="${src}" destdir="${bin}" debug="true" target="1.6">
+			<classpath refid="classpath" />
+			<compilerarg value="-g"/>
+		</javac>
+	</target>
+	
+	<target name="run" depends="build">
+		<java classname="stdin.StdInTest" fork="true" input="stdinTest.txt">
+			<classpath refid="classpath"/>
+		</java>
+	</target>
+	
+</project>
