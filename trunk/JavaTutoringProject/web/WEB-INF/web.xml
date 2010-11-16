@@ -5,13 +5,13 @@
     <description>Joseph Paul Cohen</description>
     
     <servlet>
-        <servlet-name>Service</servlet-name>
-        <display-name>Service</display-name>
+        <servlet-name>ExampleService</servlet-name>
+        <display-name>Example Service</display-name>
         <servlet-class>servlet.ExampleServlet</servlet-class>
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>Service</servlet-name>
+        <servlet-name>ExampleService</servlet-name>
         <url-pattern>/Service/*</url-pattern>
     </servlet-mapping>
     
