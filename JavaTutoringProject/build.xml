@@ -29,13 +29,6 @@
 			<classpath refid="classpath" />
 			<compilerarg value="-g"/>
 		</javac>
-		<copy todir="${bin}">
-		 	<fileset dir="./src" casesensitive="yes">
-		 	  <include name="**/**.properties"/>
-		 	  <include name="**/**.xml"/>
-		 	  <exclude name="**/**.svn"/>
-		 	</fileset>
-		</copy>
 	</target>
 	
     <target name="war" depends="build">
@@ -60,15 +53,12 @@
 	
 	
 	<target name="start" depends="install">
-		<echo>http://localhost:8080/</echo>
+		<echo>http://localhost:8081/</echo>
 		
         <java jar="${tomcat}/bin/bootstrap.jar" fork="true">
             <jvmarg value="-Dcatalina.home=${tomcat}" />
             <jvmarg value="-Dcatalina.base=${tomcat}" />
             <jvmarg value="-Xdebug" />
-            <jvmarg value="-Xrunjdwp:transport=dt_socket,address=8002,server=y,suspend=n" />
         </java>
-
 	</target>
-	
 </project>
