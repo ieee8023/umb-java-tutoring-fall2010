@@ -59,6 +59,7 @@
             <jvmarg value="-Dcatalina.home=${tomcat}" />
             <jvmarg value="-Dcatalina.base=${tomcat}" />
             <jvmarg value="-Xdebug" />
+            <jvmarg value="-Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n" />
         </java>
 	</target>
 </project>
