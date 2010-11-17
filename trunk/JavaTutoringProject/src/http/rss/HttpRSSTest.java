@@ -37,8 +37,11 @@ public class HttpRSSTest {
 		Rss rss = rssc.fromXml(feed.toString());
 		
 		for(Item i: rss.channel.items){
-			System.out.println(i.title);
-			System.out.println("  " + i.description);
+			if(i.title.contains("Current Weather Conditions")){
+				System.out.println(i.title);
+				System.out.println("  " + i.description);
+			}
+			
 		}
 	}
 }
