@@ -70,6 +70,7 @@ public class HSQLUtil {
 	 */
 	public void close(){
 		try {
+			this.execute("SHUTDOWN");
 			connection.commit();
 			connection.close();
 		} catch (SQLException e) {
