@@ -70,6 +70,7 @@ public class HSQLUtil {
 	 */
 	public void close(){
 		try {
+			connection.commit();
 			connection.close();
 		} catch (SQLException e) {
 			System.err.println("Error closing Connection" + connection);
