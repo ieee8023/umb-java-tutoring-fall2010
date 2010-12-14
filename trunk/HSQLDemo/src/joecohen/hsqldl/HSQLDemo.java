@@ -1,6 +1,7 @@
 package joecohen.hsqldl;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class HSQLDemo {
 
@@ -13,10 +14,12 @@ public class HSQLDemo {
 		
 		HSQLUtil util = new HSQLUtil("db/testDatabase");
 		
-		util.view();
+		// uncomment to see the visual HSQLDB viewer
+		//util.view();
+		
+		// This will create the table if it doesn't already exist
 		
 		ResultSet resultSet = util.getMetaData().getTables(null, null, "EMAILS", null);
-		
 		try{
 			resultSet.next();
 			if (!"EMAILS".equals(resultSet.getString("TABLE_NAME")))
@@ -30,18 +33,28 @@ public class HSQLDemo {
 			System.out.println("Table Created");
 		}
 		
-		//util.executeQuery("Create")
-
-		//while (resultSet.next()) {
-		//    System.out.println(resultSet.getString("title") + " (" +
-		///		       resultSet.getString("url") + ")");
-		//    
-		//}
+		// insert record and catch if it's already in there
 		
-		//resultSet.close();
-
+		try{
+			util.execute("INSERT INTO EMAILS (email, name) VALUES ('someone@somewhere.com', 'somebody')");
+		}catch (SQLException e){
+			System.out.println("Record already exists");
+		}
 		
+		try{
+			util.execute("INSERT INTO EMAILS (email, name) VALUES ('someoneelse@somewhere.com', 'someone else')");
+		}catch (SQLException e){
+			System.out.println("Record already exists");
+		}
+		
+		// display the contents
+		
+		ResultSet rs = util.executeQuery("SELECT email, name from EMAILS");
+		while (rs.next()){
+			System.out.println(rs.getString("email") + " :: " + rs.getString("name"));
+			
+		}
+
 		util.close();
 		}
-	
 }
