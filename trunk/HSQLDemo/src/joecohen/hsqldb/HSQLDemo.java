@@ -47,14 +47,27 @@ public class HSQLDemo {
 			System.out.println("Record already exists");
 		}
 		
-		// display the contents
+		try{
+			util.execute("INSERT INTO EMAILS (email, name) VALUES ('someoneelse@somewhere.edu', 'someone else')");
+		}catch (SQLException e){
+			System.out.println("Record already exists");
+		}
 		
+		// display the contents
+		System.out.println("==List all records===========");
 		ResultSet rs = util.executeQuery("SELECT email, name from EMAILS");
 		while (rs.next()){
 			System.out.println(rs.getString("email") + " :: " + rs.getString("name"));
 			
 		}
 
+		System.out.println("==List all .edu records===========");
+		rs = util.executeQuery("SELECT email, name from EMAILS WHERE email LIKE '%.edu'");
+		while (rs.next()){
+			System.out.println(rs.getString("email") + " :: " + rs.getString("name"));
+			
+		}
+		
 		util.close();
 		}
 }
