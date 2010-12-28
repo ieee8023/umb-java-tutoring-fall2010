@@ -14,9 +14,6 @@ public class HSQLDemo {
 		
 		HSQLUtil util = new HSQLUtil("db/testDatabase");
 		
-		// uncomment to see the visual HSQLDB viewer
-		//util.view();
-		
 		// This will create the table if it doesn't already exist
 		
 		ResultSet resultSet = util.getMetaData().getTables(null, null, "EMAILS", null);
@@ -68,6 +65,10 @@ public class HSQLDemo {
 			
 		}
 		
+		// uncomment to see the visual HSQLDB viewer
+		//util.view();
+		
 		util.close();
+		
 		}
 }
