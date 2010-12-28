@@ -65,10 +65,10 @@ public class HSQLDemo {
 			
 		}
 		
-		// uncomment to see the visual HSQLDB viewer
-		//util.view();
-		
 		util.close();
+		
+		// uncomment to see the visual HSQLDB viewer
+		util.view();
 		
 		}
 }
